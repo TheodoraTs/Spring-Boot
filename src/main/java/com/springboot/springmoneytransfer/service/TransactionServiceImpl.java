@@ -57,23 +57,5 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
 
-//    @Override
-//    public void validations(Account sourceAccount, Account targetAccount, BigDecimal amount,String currency) {
-//
-//
-//        if (sourceAccount.getBalance().compareTo(amount) < 0) {
-//            throw new InsufficientBalanceException();
-//        }
-//
-//        if (sourceAccount.equals(targetAccount)) {
-//            throw new SameAccountException();
-//        }
-//
-//        sourceAccount.setBalance(sourceAccount.getBalance().subtract(amount));
-//        targetAccount.setBalance(targetAccount.getBalance().add(amount));
-//
-//        accountRepository.save(sourceAccount);
-//        accountRepository.save(targetAccount);
-//    }
 
 }
