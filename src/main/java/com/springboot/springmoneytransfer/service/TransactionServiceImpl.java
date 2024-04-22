@@ -25,8 +25,8 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public Transaction transferMoney(Account sourceAccount, Account targetAccount, BigDecimal amount,String currency) {
 
-      //  Account sourceAccount = AccountService.getAccount(sourceAccountId);
-      //  Account targetAccount = AccountService.getAccount(targetAccountId);
+        Account sourceAccount = AccountService.getAccount(sourceAccountId);
+        Account targetAccount = AccountService.getAccount(targetAccountId);
 
         if (sourceAccount == null || targetAccount == null) {
             throw new AccountNotFoundException();
@@ -43,8 +43,8 @@ public class TransactionServiceImpl implements TransactionService {
         sourceAccount.setBalance(sourceAccount.getBalance().subtract(amount));
         targetAccount.setBalance(targetAccount.getBalance().add(amount));
 
-      //  AccountService.updateAccount(sourceAccount);
-      //  AccountService.updateAccount(targetAccount);
+        AccountService.updateAccount(sourceAccount);
+        AccountService.updateAccount(targetAccount);
 
         Transaction transaction = new Transaction();
         transaction.setSourceAccountId(sourceAccount.getId());
